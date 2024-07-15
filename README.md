@@ -6,12 +6,12 @@ Code is stored in LoRa_module folder, it is documented by comments. To porgram m
 2) When choosing board, first install additional ESP32 boards. Then choose Heltec WiFi LoRa 32(v3).
 3) Then install all dependencies, by library manager:
   lib_deps =
-	heltecautomation/Heltec ESP32 Dev-Boards@^2.0.2
-	jgromes/RadioLib@^6.6.0
-	ropg/HotButton@^0.1.1
-	ropg/Heltec_ESP32_LoRa_v3@^0.9.1
-	thingpulse/ESP8266 and ESP32 OLED driver for SSD1306 displays@^4.6.1
-  Last one is needed only if you want using OLED screen it is useful for debbuging purpose, but probably wouldn't be used in final version installed on robot.
+	<br /> heltecautomation/Heltec ESP32 Dev-Boards@^2.0.2
+	<br /> jgromes/RadioLib@^6.6.0
+	 <br />ropg/HotButton@^0.1.1
+	<br />ropg/Heltec_ESP32_LoRa_v3@^0.9.1
+	<br /> thingpulse/ESP8266 and ESP32 OLED driver for SSD1306 displays@^4.6.1
+ <br /> Last one is needed only if you want using OLED screen it is useful for debbuging purpose, but probably wouldn't be used in final version installed on robot.
 4) Next step is little tricky, but needed. We need to comment or delete lines 23-29 in C:\Users\user\OneDrive - Centrum Łukasiewicz\Documents\Arduino\libraries\Heltec_ESP32_LoRa_v3\src\RadioLib_convenience.h if arduino IDE was used. This is some status information for debugging, and we didin't want to send it anywhere. If VSCode community and platformio was used to set up board path is libdeps\Heltec_ESP32_LoRa_v3\src\RadioLib_convenience.h.
 5) Then we program MCU with file main.cpp
 # ROS2 modules
