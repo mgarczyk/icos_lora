@@ -1,7 +1,6 @@
 /**
  * Send and receive LoRa-modulation packets with a sequence number, showing RSSI
- * and SNR for received packets on the little display. 
- * This version shows only RX data on the screen.
+ * and SNR for received packets on the little display.
  *
  * Note that while this send and received using LoRa modulation, it does not do
  * LoRaWAN. For that, see the LoRaWAN_TTN example.
@@ -42,7 +41,7 @@
 String rxdata;
 String txdata;
 volatile bool rxFlag = false;
-long counter = 0;
+int counter = 0;
 uint64_t last_tx = 0;
 uint64_t tx_time;
 uint64_t minimum_pause;
@@ -73,13 +72,18 @@ void is_tx_legal(bool tx_legal){
 }
 
 void tx(){
-  both.printf("%s", txdata);
+  // both.printf("%s", "Done ");
+  // both.printf("%i\n", counter);
   radio.clearDio1Action();
   heltec_led(50); // 50% brightness is plenty for this LED
   tx_time = millis();
   RADIOLIB(radio.transmit(txdata));
   tx_time = millis() - tx_time;
   heltec_led(0);
+  counter++;
+  if(counter==1000){
+    counter=0;
+  }
 }
 
 void set_up_duty_cycle(){
